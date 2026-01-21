@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+
 # Create your models here.
 
 # <HINT> Create a Car Make model `class CarMake(models.Model)`:
@@ -45,8 +46,8 @@ class CarModel(models.Model):
     ]
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     year = models.IntegerField(validators=[MinValueValidator(2015), MaxValueValidator(2023)])
-    #dealer_id = models.IntegerField()
-    #color = models.CharField(max_length=50, default='Unknown')
+    dealer_id = models.IntegerField()
+    color = models.CharField(max_length=50, default='Unknown')
     # Other fields as needed
     def __str__(self):
         return f"{self.year} {self.car_make.name} {self.name}"
